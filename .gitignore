@@ -5,3 +5,14 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+model/
+*.pkl
+*.joblib
+*.h5
