@@ -13,7 +13,7 @@ def seoul_time_air_quality_data_last_six_hours(api_key, file_path, city):
   end_time = now
   count = 0
 
-  while count < 7 :
+  while count < 8 :
     time_str = end_time.strftime('%Y%m%d%H') + "00"  # 분을 00으로 설정
     # URL을 6시간 전부터 현재까지의 데이터로 요청
     url = base_url.format(api_key, time_str, city)
