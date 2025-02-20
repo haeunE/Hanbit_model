@@ -20,7 +20,7 @@ def seoul_time_air_quality_data_yesterday(file_path,api_key):
     data_list = []
     now = datetime.now()
     # 현재 시간에서 12시간 전을 계산
-    twelve_hours_ago = now - timedelta(hours=7)
+    twelve_hours_ago = now - timedelta(hours=8)
     
     # tm1은 12시간 전의 '시'로 설정
     tm1 = twelve_hours_ago.strftime('%Y%m%d%H') + "00"  # 12시간 전의 시각에서 분과 초는 '00'으로 설정
@@ -58,8 +58,9 @@ def seoul_time_air_quality_data_yesterday(file_path,api_key):
             air_quality_df['datetime'] = pd.to_datetime(air_quality_df['datetime'], format='%Y%m%d%H%M')
             weather_df['datetime'] = pd.to_datetime(weather_df['datetime'], format='%Y%m%d%H%M')
             # Perform left join on datetime
-            merged_df = pd.merge(air_quality_df, weather_df, on='datetime', how='left')
+            merged_df = pd.merge(air_quality_df, weather_df, on='datetime', how='inner')
             print(merged_df)
+            merged_df = merged_df.head(7)
             merged_df.to_csv(file_path, index=False, encoding='utf-8-sig')
             print(f"Merged data saved to {file_path}")
         else:
