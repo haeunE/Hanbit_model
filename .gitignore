@@ -1,0 +1,40 @@
+# Python Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+# Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Flask environment files
+.env
+.flaskenv
+
+# Logs
+*.log
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Instance folder
+instance/
+
+# Backup files
+*.bak
+
+# Pytest cache
+.pytest_cache/
+
+# tox environment
+.tox/
+
+model/
