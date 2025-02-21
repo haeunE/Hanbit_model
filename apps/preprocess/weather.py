@@ -27,7 +27,7 @@ def seoul_time_air_quality_data_yesterday(file_path,api_key):
     tm2 = now.strftime('%Y%m%d%H') + "00"  # 같은 날 12시간 전 시간대의 마지막 분까지
     print(tm1,tm2)
     url = f"https://apihub.kma.go.kr/api/typ01/url/kma_sfctm3.php?tm1={tm1}&tm2={tm2}&stn=108&authKey={api_key}"
-
+    print(url)
     try:
         response = requests.get(url, timeout=60)  # 요청 타임아웃 60초 설정
         print(f"API 응답 코드: {response.status_code}")  # 응답 코드 확인

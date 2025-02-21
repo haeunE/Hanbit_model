@@ -103,6 +103,7 @@ def run_model():
         df = pd.read_csv("apps/static/yesterday_seoul_dust.csv")
         if df.columns.size<=10:
             run_preprocess()  
+
         print("✅ 데이터 로드 완료. 컬럼 목록:", df.columns.tolist())
 
         # 1️⃣ 컬럼 정렬
