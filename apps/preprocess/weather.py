@@ -29,7 +29,7 @@ def seoul_time_air_quality_data_yesterday(file_path,api_key):
     url = f"https://apihub.kma.go.kr/api/typ01/url/kma_sfctm3.php?tm1={tm1}&tm2={tm2}&stn=108&authKey={api_key}"
 
     try:
-        response = requests.get(url, timeout=30)  # 요청 타임아웃 60초 설정
+        response = requests.get(url, timeout=60)  # 요청 타임아웃 60초 설정
         print(f"API 응답 코드: {response.status_code}")  # 응답 코드 확인
 
         if response.status_code != 200:
