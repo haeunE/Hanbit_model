@@ -13,6 +13,10 @@ ENV/
 env.bak/
 venv.bak/
 
+model/
+*.pkl
+*.joblib
+*.h5
 # Flask environment files
 .env
 .flaskenv
@@ -36,5 +40,3 @@ instance/
 
 # tox environment
 .tox/
-
-model/
