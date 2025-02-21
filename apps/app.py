@@ -149,12 +149,17 @@ def run_model():
 
         response = {"pm10": y_pm10_pred}
         return jsonify(response)
+    
+    except Exception as e:
+        print("🔴 오류 발생:", e)
+        return jsonify({"error": str(e)})
 
 
 
 def model_sw_load():
     global model_sw, scaler_sw, column_sw, season_sw, weekday_sw
     print("모델 로드 시작")
+    
     
     model_sw = load_model('model/pm_lstm_sw01.keras')  # Keras 모델 파일 로드
     
@@ -215,11 +220,9 @@ def run_model_sw():
     try:
         print("📌 데이터 로드 시작")
 
-        # 클라이언트로부터 POST로 데이터를 받음
-        input_data = request.get_json()  # JSON 형식으로 입력 데이터 받기
-        print(input_data)
-        
-        df = pd.DataFrame([input_data])  # DataFrame으로 변환
+        # CSV 파일 로드
+        df = pd.read_csv("apps/static/yesterday_seoul_dust.csv")
+        df = df.head(1)
         print(df)
         print("✅ 데이터 로드 완료.")
         
